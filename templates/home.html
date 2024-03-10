@@ -12,12 +12,13 @@
     <button onclick="calculate('add')">Add</button>
     <button onclick="calculate('subtract')">Subtract</button>
     <div id="result"></div>
+    <div id="error" style="color: red;"></div>
 
     <script>
         function calculate(operation) {
-            var num1 = document.getElementById('num1').value;
-            var num2 = document.getElementById('num2').value;
-
+            var num1 = document.getElementById('num1').value.trim();
+            var num2 = document.getElementById('num2').value.trim();
+            
             fetch('/calculate', {
                 method: 'POST',
                 headers: {
@@ -27,7 +28,13 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('result').innerText = 'Result: ' + data.result;
+                if ('error' in data) {
+                    document.getElementById('error').innerText = data.error;
+                    document.getElementById('result').innerText = '';
+                } else {
+                    document.getElementById('result').innerText = 'Result: ' + data.result;
+                    document.getElementById('error').innerText = '';
+                }
             })
             .catch(error => console.error('Error:', error));
         }
