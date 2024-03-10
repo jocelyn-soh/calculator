@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify 
-import math
 
 app = Flask(__name__)
 
@@ -20,8 +19,10 @@ def calculate():
         
     if result >= 1e308:
         return jsonify({'error': 'Result exceeds maximum representable value of 1e308'})
-        
-    return jsonify({'result': result})
+
+    rounded_result = round(result, 10)
+
+    return jsonify({'result': rounded_result})
 
 if __name__ == '__main__':
     app.run()
