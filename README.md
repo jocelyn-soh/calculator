@@ -19,6 +19,7 @@ Welcome to Calculator! This is a simple calculator web application that allows u
 2. Repeat step 1 for the second number. 
 3. Click on the `Add` button to perform addition.
 4. The result is generated on a separate line below. 
+<br/> 
 Note: The two input values should be of type float, and smaller than 1e308. The result will be rounded to 10 d.p. 
 
 ### Subtracting two numbers
@@ -26,4 +27,5 @@ Note: The two input values should be of type float, and smaller than 1e308. The 
 2. Repeat step 1 for the second number. 
 3. Click on the `Subtract` button to perform subtraction.
 4. The result is generated on a separate line below. 
+<br/> 
 Note: The two input values should be of type float, and smaller than 1e308. The result will be rounded to 10 d.p. 
